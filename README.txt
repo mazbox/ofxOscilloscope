@@ -12,4 +12,6 @@ The other settings aren't implemented
 
 The xmlGuiOscilloscopeExample is using my forthcoming xmlgui library.
 
+There's a compiled mac version in ofxOscilloscope.zip
+
 enjoy

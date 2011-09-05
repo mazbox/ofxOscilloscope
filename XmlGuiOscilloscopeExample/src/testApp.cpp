@@ -3,7 +3,13 @@
 ofImage bgImg;
 //--------------------------------------------------------------
 void testApp::setup() {
-	ofSetDataPathRoot(ofToDataPath("../ofxOscilloscopeDebug.app/Contents/Resources/data"));
+	char c[512];
+	getcwd(c, 512);
+	printf("Cwd: %s\n", c);
+	string path = c;
+	path += "/../Resources/data/";
+	ofSetDataPathRoot(path);
+	printf("Data path: %s\n", ofToDataPath("./").c_str());
 	bgImg.loadImage("bg.png");
 	oscilloscope.setup(44100);
 	oscilloscope.setEnabled(true);
