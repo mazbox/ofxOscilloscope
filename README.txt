@@ -1,3 +1,6 @@
+ofxOscillator
+=============
+
 This is a basic oscilloscope. See SimpleOscilloscopeExample for usage. 
 You can set:
 	- vertical position
@@ -5,10 +8,13 @@ You can set:
 	- timebase
 	- trigger level
 	- trigger direction
-	
-You can set these by accessing the public variables of ofxOscilloscope.
+	- auto (one push)
 
-The other settings aren't implemented
+There's also a pause button. Pause also can be controlled by the space bar.
+
+Trigger Hold off time doesn't work yet.
+
+You can set these by accessing the public variables of ofxOscilloscope.
 
 The xmlGuiOscilloscopeExample is using my forthcoming xmlgui library.
 

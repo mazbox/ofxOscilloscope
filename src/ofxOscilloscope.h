@@ -33,7 +33,7 @@ public:
 	
 	void draw(float x,float y);
 	void draw(float x,float y,float w, float h);
-	
+
 	float getWidth();
 	float getHeight();
 	
@@ -62,7 +62,16 @@ public:
 	
 	// minimum time between triggers
 	float triggerHoldOff;
+
+	// pauses the current signal
+	void togglePaused();
 	
+protected:
+	bool paused;
+private:
+	void drawGrid(float x, float y, float w, float h);
+	void drawVerticalLines(float x, float y, float w, float h);	
+	void drawHorizontalLines(float x, float y, float w, float h);	
 	// the sample to display
 	float sample[MAX_SAMPLE_SIZE];
 	
@@ -83,8 +92,12 @@ public:
 	// (not an array, but just the 
 	// very last value.)
 	float lastSample;
-	
+
 	ofMutex inputMutex;
+	
+	int automode;
+	float autoMin;
+	float autoMax;
 };
 
 

@@ -5,11 +5,11 @@ ofImage bgImg;
 void testApp::setup() {
 	char c[512];
 	getcwd(c, 512);
-	printf("Cwd: %s\n", c);
+	//printf("Cwd: %s\n", c);
 	string path = c;
 	path += "/../Resources/data/";
 	ofSetDataPathRoot(path);
-	printf("Data path: %s\n", ofToDataPath("./").c_str());
+	//printf("Data path: %s\n", ofToDataPath("./").c_str());
 	bgImg.loadImage("bg.png");
 	oscilloscope.setup(44100);
 	oscilloscope.setEnabled(true);
@@ -36,8 +36,9 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed  (int key){
-	
-	
+	if(key==' ') {
+		oscilloscope.togglePaused();
+	}
 }
 
 //--------------------------------------------------------------

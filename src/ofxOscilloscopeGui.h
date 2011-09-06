@@ -24,7 +24,8 @@ class ofxOscilloscopeGui: public ofxOscilloscope, public xmlgui::Gui, public xml
 
 public:
 	void setup(float samplerate) {
-		loadFromXml("gui.xml");
+
+		Gui::loadFromXml("oscilloscopegui.xml");
 		addListener(this);
 		xmlgui::Drawable *c = (xmlgui::Drawable*)getControlById("scope");
 		
@@ -37,7 +38,7 @@ public:
 		getControlById("triggerLevel")->pointToValue(&triggerLevel);
 		getControlById("triggerHoldOff")->pointToValue(&triggerHoldOff);
 		getControlById("timebase")->pointToValue(&timebase);
-		
+		getControlById("pause")->pointToValue(&paused);
 		ofBackground(34, 34, 34);
 		
 		ofxOscilloscope::setup(samplerate);
@@ -54,6 +55,8 @@ public:
 			} else if(control->getInt()==2) {
 				triggerDirection = ofxOscilloscope::DOWN;
 			}
+		} else if(control->id=="autoCalibrate") {
+			autoCalibrate();
 		}
 	}
 	
